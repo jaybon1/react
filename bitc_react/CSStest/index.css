@@ -1,0 +1,10 @@
+.container {
+  border: 5px solid #ffcc5c;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.container div {
+  width: 300px;
+}

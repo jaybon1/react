@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="data-box">안녕</div>
+    <button onclick="getPosts()">클릭하세요</button>
+    <script>
+      async function getPosts() {
+        let resp = await fetch("http://192.168.0.25:8080/post");
+        let posts = await resp.json();
+        let dataBox = document.querySelector("#data-box");
+        dataBox.innerHTML = posts[0].title;
+        console.log(posts);
+      }
+    </script>
+  </body>
+</html>

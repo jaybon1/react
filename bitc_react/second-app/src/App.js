@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import Post from "./Post";
 import styled from "styled-components";
 
+const ContainerBox = styled.div`
+  display: grid;
+  justify-content: center;
+`;
+
 class App extends Component {
   state = {
     posts: [
@@ -21,11 +26,6 @@ class App extends Component {
   };
 
   render() {
-    const ContainerBox = styled.div`
-      display: grid;
-      justify-content: center;
-    `;
-
     const add = () => {
       // render안에 const로 만들면 계속 초기화 되지않는다
       this.setState({
@@ -45,14 +45,27 @@ class App extends Component {
       });
     };
 
+    const update = () => {
+      const data = {
+        id: 2,
+        title: "제목200",
+      };
+
+      this.setState({
+        posts: this.state.posts.map((post) =>
+          post.id === 2 ? { ...post, ...data } : post
+        ),
+      });
+    };
+
     return (
       <ContainerBox>
-        <button onClick={add}>추가</button>
-        <button onClick={del}>삭제</button>
-
+        <button onClick={add}> 추가 </button>
+        <button onClick={del}> 삭제 </button>
+        <button onClick={update}> 수정 </button>
         {this.state.posts.map((post) => {
           return <Post id={post.id} title={post.title} />;
-        })}
+        })}{" "}
       </ContainerBox>
     );
   }

@@ -9,17 +9,101 @@
 
 <body>
     <script>
-        let a = [{
-            id: 1
-        }, {
-            id: 2
-        }, {
-            id: 3
-        }, {
-            id: 4
-        }];
-        let b = a.filter((n) => n.id != 3);
-        console.log(b);
+        //배열의 중간요소 추가
+        // const a = [1, 2, 3];
+        // console.log(1, a);
+        // const b = a.slice(0, 2);
+        // console.log(2, b);
+        // const c = b.concat(4);
+        // console.log(3, c);
+        // const d = a.slice(2, 3);
+        // console.log(4, d);
+        // const e = c.concat(d);
+        // console.log(e);
+
+        // const b = a.slice(0, 2).concat(4, a.slice(2, 3));
+        // console.log(b);
+
+
+
+        // 스프레드 연산자 배열 결합
+        // const a = [1, 2, 3];
+        // const b = [3, 4, 5];
+        // console.log(a); // 배열을 출력
+        // console.log(...a); // 숫자가 루프된 것 출력
+
+        // const c = [...a, ...b]; // 배열일 경우 (결합)
+        // console.log(c);
+
+
+
+        // 스프레드 연산자 오브젝트
+        // const a = {
+        //     id: 1,
+        //     name: '홍길동'
+        // };
+        // const b = {
+        //     ...a,
+        //     ...{
+        //         id: 2,
+        //         name: '임꺽정'
+        //     }
+        // };
+        // console.log(b);
+
+
+
+        // 스프레드 연산자 오브젝트 2
+        // const a = {a:1, b:2, c:3, d:4};
+        // const b = {d:100, e:101, f:102};
+        // const c = {...a, ...b};
+        // console.log(c);
+
+        // const a = [1, 2, 3];
+        // const b = [...a.slice(0, 2), 4, ...a.slice(2, 3)];
+        // console.log(b)
+
+        // const a = {id:1, name:'홍길동'}; // 깊은 복사
+        // const b = {...a};
+
+
+
+        // const names = ["홍길동", "홍성수", "이원모"];
+
+        // const i = names[0].indexOf("홍동"); // 문자열의 시작값을 찾는다
+        // console.log(i);
+
+        // const filterNames = names.filter((name) => name.indexOf("홍") !== -1);
+        // console.log(filterNames);
+
+
+        const users = [{
+                id: 1,
+                name: "김성수",
+                phone: "2222"
+            },
+            {
+                id: 2,
+                name: "이병근",
+                phone: "3333"
+            },
+            {
+                id: 3,
+                name: "최민경",
+                phone: "4444"
+            }
+        ];
+
+        // map은 리턴타입이 data이다
+        const requestUser = {
+            id: 2,
+            name: "차아령"
+        }
+        const newUsers = users.map((user) => user.id === 2 ? {
+            ...user,
+            ...requestUser
+        } : user);
+        console.log(newUsers);
     </script>
 </body>
 

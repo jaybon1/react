@@ -3,18 +3,19 @@ import "./App.css";
 import Login from "./Login";
 import Axios from "axios";
 
-const config = {
-  headers: { Authorization: "Bearer " + localStorage.getItem("jwtToken") },
-};
+
 
 function App() {
   const [user, setUser] = useState(null);
 
   const getUser = async () => {
+    const config = {
+      headers: { Authorization: "Bearer " + localStorage.getItem("jwtToken") },
+    };
     console.log(config.headers.Authorization);
     let res = await Axios.get("http://localhost:8080/user", config);
     console.log(res);
-    setUser(res.data);
+    setUser(res.data.data);
   };
 
   return (

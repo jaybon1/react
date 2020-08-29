@@ -26,7 +26,7 @@ const Login = () => {
   return (
     <div>
       <GoogleLogin
-        clientId="클라이언트아이디"
+        clientId=""
         buttonText="Login"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}

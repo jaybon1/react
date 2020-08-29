@@ -18,7 +18,7 @@ const responseGoogle = async (response) => {
   );
   if (jwtToken.status === 200) {
     console.log(2, jwtToken.data);
-    localStorage.setItem("jwtToken", jwtToken.data);
+    localStorage.setItem("jwtToken", jwtToken.data.data);
   }
 };
 

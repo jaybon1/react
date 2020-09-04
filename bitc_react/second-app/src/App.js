@@ -14,7 +14,7 @@ class App extends Component {
         <hr />
         <Route path="/" component={Home} exact={true} />
         <hr />
-        <Route path="/about" component={About} />
+        <Route path="/about/:num" component={About} />
         <hr />
         <Route path="/profile" component={Profile} />
       </div>
